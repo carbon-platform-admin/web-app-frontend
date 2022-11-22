@@ -38,18 +38,11 @@ export default {
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
-		replace({
-			process: JSON.stringify({
-				env: {
-					isProd: production,
-					backendProductionApiURI: 'http://localhost:8000',
-				}
-			})
-		}),
 		svelte({
 			compilerOptions: {
 				// enable run-time checks when not in production
-				dev: !production
+				dev: !production,
+				
 			}
 		}),
 		// we'll extract any component CSS out into
@@ -63,10 +56,13 @@ export default {
 		// https://github.com/rollup/plugins/tree/master/packages/commonjs
 		resolve({
 			browser: true,
+			// dedupe: (importee) =>
+			// 	importee === "svelte" || importee.startsWith("svelte/"),
+			// mainFields: ["main", "module"],
 			dedupe: ['svelte']
 		}),
 		commonjs(),
-
+		
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
 		!production && serve(),

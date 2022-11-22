@@ -1,25 +1,37 @@
 <script>
 	import Router from 'svelte-spa-router';
 
+	import Footer from "./sections/Footer.svelte";
+
 	import Home from './pages/Home.svelte';
-	import Login from './pages/Login.svelte';
 	import Cart from './pages/Cart.svelte';
+
+	import Navbar from './components/navbar/Navbar.svelte';
+    import CarbonFootprintCalc from './pages/CarbonFootprintCalc.svelte';
+    import ProductDetail from './pages/ProductDetail.svelte';
+    import Success from './pages/Success.svelte';
+    import Cancel from './pages/Cancel.svelte';
+
+
+	if (Object.keys(localStorage).length === 0) {
+		localStorage.setItem('cart', JSON.stringify([]));
+		localStorage.setItem('wishlist', JSON.stringify([]));
+	}	
 </script>
 
 <main>
-	<nav>
-		<a href="/#/">Home</a>
-		<a href="/#/login">Login</a>
-		<a href="/#/cart">Cart</a>
-	</nav>
-	<button on:click|preventDefault={() => {document.body.classList.toggle('dark-theme')}}>Switch Mode</button>
+	<Navbar />
 	<Router routes={{
 		'/': Home,
-		'/login': Login,
-		'/cart': Cart
+		'/cart': Cart,
+		'/success': Success,
+		'/cancel': Cancel,
+		'/calculate': CarbonFootprintCalc,
+		'/products/:productHandle': ProductDetail
 	}} />
+	<Footer />
 </main>
 
 <style>
-	
+
 </style>

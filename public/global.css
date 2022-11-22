@@ -1,67 +1,79 @@
 :root {
 	--background-color: white;
 	--header-color: ;
-	--text-color: ;
-	--accent-color: ;
+	--navbar-color: #395B64;
+	--experimental-color: #393E46;
+	--text-color: white;
+	--accent-color: #60B45A;
+	--header-gradient: linear-gradient(to bottom left, #04B79C, #A4FCBC);
+	--nav-separator-height: 40px;
+	--text-font-family: "New York", Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+
+	--featured-text-color: #;
+	
+
+	--main-content-width: 1398px;
+	
+	--sub-nav-color: #E7F6F2;
+	--sub-nav-color-hover: #bcccc8;
+	--border-color: #e2e2e2;
+	--price-color: #395B64;
+
+	--slideshow-btn-color: #9bcfdd;
 }
 
 .dark-theme {
 	--background-color: black;
 	--header-color: ;
 	--text-color: white;
-	--accent-color: ;
-
+	--accent-color: #60B45A;
+	--navbar-color: black;
+	--header-gradient: linear-gradient(to bottom right, #04B79C, #A4FCBC);
+	--nav-separator-height: 40px;
 }
 
 html, body {
 	position: relative;
 	width: 100%;
 	height: 100%;
+	margin: 0;
+	font-family: var(--text-font-family)
 }
 
 body {
 	box-sizing: border-box;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	background-color: var(--background-color);
-	color: var(--text-color)
+	min-width: 483px;
+}
+
+p {
+	font-size: 16px;
+	font-weight: 500;
 }
 
 a {
-	color: rgb(0,100,200);
 	text-decoration: none;
+	color: var(--navbar-color);
 }
 
-a:hover {
-	text-decoration: underline;
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
 }
 
 a:visited {
-	color: rgb(0,80,160);
+	color: var(--navbar-color);
 }
 
-label {
-	display: block;
-}
 
-input, button, select, textarea {
-	font-family: inherit;
-	font-size: inherit;
-	-webkit-padding: 0.4em 0;
-	padding: 0.4em;
-	margin: 0 0 0.5em 0;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
-}
+
 
 input:disabled {
 	color: #ccc;
 }
 
 button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
+	cursor: pointer;
 }
 
 button:disabled {
