@@ -25,6 +25,8 @@
     <BestSelling />
     <JustIn />
     <CategorySnippet category={new Category("Bedding, Cushions, and Throws")}/>
+    <CategorySnippet category={new Category("Tops & T-Shirts")}/>
+    <CategorySnippet category={new Category("Pants")}/>
     <!-- TODO -->
     <BrandsWeLove />
     <!-- Brands We Love -->

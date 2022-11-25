@@ -4,7 +4,6 @@
     import SubNavComponent from "./SubNavComponent.svelte";
     import { categories, aboutCategories } from "../../categories/categories";
 
-    console.log(aboutCategories[0]);
 </script>
 
 <div class="sub-nav">
@@ -30,7 +29,7 @@
         width: 100%;
         position: relative;
         color: var(--navbar-color);
-        z-index: 10;
+        z-index: 3;
     }
 
     /* .sub-nav::before {
@@ -48,5 +47,6 @@
         margin: 0 auto;
         padding: 0;
         padding-left: 100px;
+        position: relative;
     }
 </style>

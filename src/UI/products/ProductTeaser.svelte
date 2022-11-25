@@ -3,11 +3,31 @@
     import ProductModifierTag from "./ProductModifierTag.svelte";
     import PriceDisplay from "./PriceDisplay.svelte";
 
+    import { enumerate } from "../../utils/utils";
+
     export let product;
 
     export let inCart = false;
     
-    
+    function addToCart(newProduct, newQty) {
+        // Utilizes local storage to persist cart state
+        let targetIdx = -1;
+        let cart = JSON.parse(localStorage.getItem('cart'));
+        
+        enumerate(cart).forEach(([idx, productString]) => {
+            let productData = JSON.parse(productString);
+            if (JSON.stringify(productData["product"]) === JSON.stringify(newProduct)) {
+                cart[idx] = JSON.stringify({"product": newProduct, "qty": newQty + productData["qty"]})
+                targetIdx = idx
+                
+            }
+        })
+
+        if (targetIdx === -1) {
+            cart.push(JSON.stringify({"product": newProduct, "qty": newQty}))
+        }
+        localStorage.setItem('cart', JSON.stringify(cart))     
+    }
 </script>
 
 <div class="product-teaser-container" on:click={window.location.href = "http://localhost:8080/#/products/" + product.handle}>
@@ -26,7 +46,7 @@
         {#if !inCart}
             <div class="carts">
                 <a href="/#/wishlist"><img src="./assets/icons/heart.png" alt=""></a>
-                <a href="/#/cart"><button>Add to cart</button></a>
+                <button on:click|stopPropagation={() => {addToCart(product, 1)}}>Add to cart</button>
             </div>
         {/if}
 </div>

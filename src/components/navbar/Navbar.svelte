@@ -72,20 +72,23 @@
         -webkit-text-fill-color: transparent;
     }
 
+    .login-toggle {
+        position: relative;
+    }
+
     .nav-body {
         background-color: var(--navbar-color);
         width: 100%;
         height: auto;
         position: sticky;
         top: 0;
-        z-index: 20;
+        z-index: 15;
     }
     .global-navbar {
         width: 100%;
         padding-top: 30px;
         position: relative;
         margin: 0 auto;
-        z-index: 15;
     }
     
     .logo h1 {
@@ -111,7 +114,7 @@
         margin: 0;
         font-size: 11px;
         padding: 0;
-        position: sticky;
+        z-index: 10;
     }
 
     .sub-nav-component {

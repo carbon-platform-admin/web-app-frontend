@@ -26,7 +26,7 @@
         var closeAuthPopup = !popup.contains(child) && !document.querySelector('.auth-nav-container').contains(child) && child !== popup;
 
         if (closeAuthPopup) {
-            popup.setAttribute('style', 'opacity: 0; z-index: 1');
+            popup.setAttribute('style', 'opacity: 0; z-index: 1; display: none;');
         }
     }
     
@@ -37,7 +37,7 @@
         if (popup.style.opacity === '1') {
             popup.setAttribute('style', 'opacity: 0; z-index: 1; display: none;');
         } else {
-            popup.setAttribute('style', 'opacity: 1; z-index: 20; display: block;')
+            popup.setAttribute('style', 'opacity: 1; z-index: 4; display: block;')
 ;
         }
     }
@@ -74,7 +74,7 @@
         margin-left: 40px;
         position: relative;
         padding: 0 20px;
-        z-index: 16;
+        z-index: 4;
     }
 
     .auth-nav-container::after {
@@ -122,12 +122,11 @@
         border-radius: 5px;
         box-shadow: 0 1px 5px 2px #0000001a;
         width: 320px; 
-        height: 618px;
         opacity: 0;
         transition: opacity .5s cubic-bezier(.23,1,.32,1);
         transform: translateY(2%);
         display: none;
-        z-index: 30;
+        z-index: 4;
     }
 
     .firebase-auth-container p {
