@@ -11,6 +11,8 @@
     import ProductDetail from './pages/ProductDetail.svelte';
     import Success from './pages/Success.svelte';
     import Cancel from './pages/Cancel.svelte';
+    import Search from './pages/Search.svelte';
+    import Wishlist from './pages/Wishlist.svelte';
 
 
 	if (Object.keys(localStorage).length === 0) {
@@ -27,7 +29,9 @@
 		'/success': Success,
 		'/cancel': Cancel,
 		'/calculate': CarbonFootprintCalc,
-		'/products/:productHandle': ProductDetail
+		'/products/:productHandle': ProductDetail,
+		'/search/:query': Search,
+		'/wishlist': Wishlist
 	}} />
 	<Footer />
 </main>

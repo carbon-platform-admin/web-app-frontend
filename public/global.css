@@ -26,7 +26,8 @@
 	--background-color: black;
 	--header-color: ;
 	--text-color: white;
-	--accent-color: #60B45A;
+	--accent-color: #66FF00;
+	/* --accent-color: #60B45A; */
 	--navbar-color: black;
 	--header-gradient: linear-gradient(to bottom right, #04B79C, #A4FCBC);
 	--nav-separator-height: 40px;

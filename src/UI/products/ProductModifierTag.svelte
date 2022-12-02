@@ -11,14 +11,16 @@
     {#if type === "discount"}
         <span>Save {content * 100}%</span>
     {:else if type === "eco"}
-        <img src='https://climate-startup-v1.s3.us-west-1.amazonaws.com/tag_icons/organic.png' alt="small leaf icon">
+        <div class="icon-wrapper">
+            <img src='https://climate-startup-v1.s3.us-west-1.amazonaws.com/tag_icons/organic.png' alt="small leaf icon" class="eco-icon">
+        </div>
     {/if}
 </span>
 
 <style>
 
     .eco {
-        background-color: #68A678; 
+        background-color: var(--accent-color); 
         left: -1px; 
         border-radius: 0px 10px 10px 0px;
     }
@@ -31,7 +33,7 @@
 
     .product-tag-container {
         position: absolute;
-        
+        height: 15px;
         top: 10%;
         padding: 4px 8px;
         font-weight: 700;
@@ -39,12 +41,19 @@
         font-size: 12px;
         display: inline-block;
         min-width: 50px;
+;
     }
 
-    .product-tag-container img {
+    .icon-wrapper {
+        position: relative;
+    }
+
+    .eco-icon {
         width: 13px;
         height: 13px;
         right: 5px;
+        position: absolute;
     }
+
 
 </style>

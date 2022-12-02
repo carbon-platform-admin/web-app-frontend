@@ -2,13 +2,18 @@
 
 </script>
 
-<div class="wishlist-icon-container" style="position: relative;">
-    <img src="./assets/icons/heart.png" alt="heart outline" class="wishlist-icon">
+<div class="wishlist-icon-container" style="position: relative;" on:click={() => {}}>
+    <a href="/#/wishlist"><img src="./assets/icons/heart.png" alt="heart outline" class="wishlist-icon"></a>
 </div>
 
 <style>
     .wishlist-icon-container {
        padding: 0 30px 0 20px;
+    }
+
+    .wishlist-icon-container a {
+        padding: 0;
+        margin: 0;
     }
 
     .wishlist-icon {

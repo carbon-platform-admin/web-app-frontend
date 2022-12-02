@@ -1,4 +1,5 @@
 <script>
+    import { fade } from "svelte/transition";
     import CategoryWidget from "../sections/CategoryWidget.svelte";
     import Featured from "../sections/Featured.svelte";
     import Recommended from "../sections/Recommended.svelte";
@@ -14,7 +15,7 @@
     import BrandsWeLove from "../sections/BrandsWeLove.svelte";
 </script>
 
-<div class="home-container">
+<div class="home-container" in:fade>
     <Featured />
     <CategoryWidget />
     <Recommended />

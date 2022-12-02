@@ -14,13 +14,13 @@
     // featured_item.setAttribute('style', `width: ${}`
 
 
-    setInterval(function () {
+    let interval = setInterval(function () {
         if (featured.length !== 0) {moveSlideShow('next')};
         
     }, 4800);
 
     onDestroy(() => {
-        clearInterval();
+        clearInterval(interval);
     })
 
     onMount(() => {
@@ -44,10 +44,15 @@
                 currIdx = featured.length - 1;
             }
         }
-        clearInterval();
+        clearInterval(interval);
 
         
-        let itemWidth = document.querySelector('.featured_item').clientWidth;
+        let itemWidth = document.querySelector('.featured_item');
+
+        if (itemWidth === undefined || itemWidth === null) {
+            return
+        }
+        itemWidth = itemWidth.clientWidth
         
         var slideShow = document.querySelector('.slideshow')
         slideShow.setAttribute('style', `transform: translateX(-${currIdx * itemWidth}px)`);

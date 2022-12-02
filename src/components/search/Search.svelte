@@ -1,10 +1,64 @@
 <script>
+    import algoliasearch from 'algoliasearch/lite';
+    import instantsearch from "instantsearch.js";
+
+    import { SearchResultStore } from "../../stores/SearchResultsStore";
+    import { queryStore } from "../../stores/QueryStore";
+
+    import { onMount } from "svelte";
+
+    const algoliaAppID = "B8LL3M4JX0";
+    const algoliaPublicKey = "d4efaae7309f0667b068b5162a2660bb";
+
+    let searchClient;
+    let index;
+
+    $: query = '';
+    $: hits = [];
+
+    onMount(() => {
+        if (query === '') {
+            window.location = "http://localhost:8080/#/";
+        }
+        searchClient = algoliasearch(
+            algoliaAppID,
+            algoliaPublicKey,
+        )
+
+        index = searchClient.initIndex('products');
+
+        // Warm up search
+
+        index.search({ query }).then(console.log)
+    
+        // const search = instantsearch({
+        //     indexName: 'instant_search',
+        //     searchClient: searchClient
+        // });
+    
+        // search.start();
+    })
+
+    async function search() {
+        console.log(query);
+        const result = await index.search(query);
+        hits = result.hits;
+
+        SearchResultStore.set(hits);
+        queryStore.set(query);
+
+        if (query === '') {
+            window.location = "http://localhost:8080/#/";
+        } else if (!window.location.toString().includes('search')) {
+            window.location = "http://localhost:8080/#/search/" + query;
+        }
+    }
 
 </script>
 
 <div class="search-container">
-    <input type="text" class="search">
-    <button class="search_button"><img src="./assets/icons/loupe.png" alt="search icon"></button>
+    <input type="text" class="search" name="query" bind:value={query} on:keyup={search}>
+    <button class="search_button" type="submit"><img src="./assets/icons/loupe.png" alt="search icon"></button>
 </div>
 
 <style>
