@@ -1,6 +1,6 @@
 <script>
     import algoliasearch from 'algoliasearch/lite';
-    import instantsearch from "instantsearch.js";
+    import { devHost, prodHost } from '../../hosts';
 
     import { SearchResultStore } from "../../stores/SearchResultsStore";
     import { queryStore } from "../../stores/QueryStore";
@@ -18,7 +18,7 @@
 
     onMount(() => {
         if (query === '') {
-            window.location = "http://localhost:8080/#/";
+            window.location = prodHost;
         }
         searchClient = algoliasearch(
             algoliaAppID,
@@ -48,9 +48,9 @@
         queryStore.set(query);
 
         if (query === '') {
-            window.location = "http://localhost:8080/#/";
+            window.location = prodHost;
         } else if (!window.location.toString().includes('search')) {
-            window.location = "http://localhost:8080/#/search/" + query;
+            window.location = prodHost + 'search/' + query;
         }
     }
 

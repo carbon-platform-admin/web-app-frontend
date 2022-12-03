@@ -5,6 +5,7 @@
     import ProductModifierTag from "./ProductModifierTag.svelte";
     import PriceDisplay from "./PriceDisplay.svelte";
     import { enumerate } from "../../utils/utils";
+    import { prodHost } from "../../hosts";
 
     export let product;
 
@@ -59,7 +60,7 @@
     })
 </script>
 
-<div class="product-teaser-container" on:click={window.location.href = "http://localhost:8080/#/products/" + product.handle}>
+<div class="product-teaser-container" on:click={window.location.href = prodHost + 'products/' + product.handle}>
         {#if product.active_discount > 0}
             <ProductModifierTag type="discount" content={product.active_discount}/>
         {/if}
