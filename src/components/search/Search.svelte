@@ -17,7 +17,7 @@
     $: hits = [];
 
     onMount(() => {
-        if (query === '') {
+        if (query === '' && window.location.href.includes('search')) {
             window.location = prodHost;
         }
         searchClient = algoliasearch(
