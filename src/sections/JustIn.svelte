@@ -7,7 +7,7 @@
     $: products = [];
 
     onMount(async () => {
-        await api.get("products/").then((res) => {
+        await api.get("products/recommended").then((res) => {
             products = res.data;
 
             if (products.length > 10) {
