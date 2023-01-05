@@ -8,7 +8,7 @@
     $: products = [];
 
     onMount(async () => {
-        await api.get("products/category/" + encodeURIComponent(category.title)).then((res) => {
+        await api.get("products/category_preview/" + encodeURIComponent(category.title)).then((res) => {
             products = res.data;
         }).catch((err) => {
             console.log(err);

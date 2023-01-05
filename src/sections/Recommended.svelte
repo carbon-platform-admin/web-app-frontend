@@ -7,12 +7,8 @@
     $: products = [];
 
     onMount(async () => {
-        await api.get("products/recommended").then((res) => {
+        await api.get("products/recommended_preview").then((res) => {
             products = res.data;
-
-            if (products.length > 10) {
-                products = products.slice(0, 10);
-            }
         }).catch((err) => {
             console.log(err);
         })
