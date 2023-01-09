@@ -3,15 +3,26 @@
     import { api } from "../axios";
 
     import ProductSlideshow from "../UI/products/ProductSlideshow.svelte";
+    import { recommendedStore } from "../stores/RecommendedStore";
     
     $: products = [];
 
     onMount(async () => {
+        const unsubscribe = recommendedStore.subscribe(data => {
+            products = data
+           
+        })
+        console.log(products)
+        if (products.length > 0) {return}
+
+
         await api.get("products/recommended_preview").then((res) => {
             products = res.data;
+            recommendedStore.set(products);
         }).catch((err) => {
             console.log(err);
         })
+
     })
 </script>
 
