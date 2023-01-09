@@ -25,6 +25,7 @@
         await api.get("products/category_preview/" + encodeURIComponent(category.title)).then((res) => {
             products = res.data;
             categoryStoreData[category.handle] = products;
+            categoryPreviewStore.set(category);
 
         }).catch((err) => {
             console.log(err);
