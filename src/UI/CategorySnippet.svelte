@@ -1,15 +1,31 @@
 <script>
     import { onMount } from "svelte";
+
     import { api } from "../axios";
     import ProductSlideshow from "./products/ProductSlideshow.svelte";
+    import { categoryPreviewStore } from "../stores/CategoryPreviewStore";
 
     export let category;
 
     $: products = [];
 
+    $: categoryStoreData = {};
+
     onMount(async () => {
+
+        const unsubscribe = categoryPreviewStore.subscribe(data => {
+            categoryStoreData = data;
+            if (Object.keys(data).includes(category.handle)) {
+                products = data[category.handle];
+            }
+        })
+
+        if (products.length > 0) {return}
+
         await api.get("products/category_preview/" + encodeURIComponent(category.title)).then((res) => {
             products = res.data;
+            categoryStoreData[category.handle] = products;
+
         }).catch((err) => {
             console.log(err);
         });
