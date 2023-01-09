@@ -19,6 +19,8 @@
 		localStorage.setItem('cart', JSON.stringify([]));
 		localStorage.setItem('wishlist', JSON.stringify([]));
 	}	
+
+	const isProd = true;
 </script>
 
 <main>

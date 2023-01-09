@@ -47,6 +47,7 @@
         SearchResultStore.set(hits);
         queryStore.set(query);
 
+
         if (query === '') {
             window.location = prodHost;
         } else if (!window.location.toString().includes('search')) {

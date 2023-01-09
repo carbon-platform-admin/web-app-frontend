@@ -15,8 +15,11 @@
 
         const unsubscribe = categoryPreviewStore.subscribe(data => {
             categoryStoreData = data;
-            if (Object.keys(data).includes(category.handle)) {
-                products = data[category.handle];
+
+            console.log(Object.keys(data));
+
+            if (Object.keys(data).includes(category.title)) {
+                products = data[category.title];
             }
         })
 
@@ -24,8 +27,8 @@
 
         await api.get("products/category_preview/" + encodeURIComponent(category.title)).then((res) => {
             products = res.data;
-            categoryStoreData[category.handle] = products;
-            categoryPreviewStore.set(category);
+            categoryStoreData[category.title] = products;
+            categoryPreviewStore.set(categoryStoreData);
 
         }).catch((err) => {
             console.log(err);
