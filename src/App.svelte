@@ -17,6 +17,7 @@
     import Learn from './pages/Learn.svelte';
     import Market from './pages/Market.svelte';
     import About from './sections/About.svelte';
+    import Category from './pages/Category.svelte';
 
 
 	if (Object.keys(localStorage).length === 0) {
@@ -40,7 +41,8 @@
 		'/success': Success,
 		'/cancel': Cancel,
 		'/products/:productHandle': ProductDetail,
-		'/wishlist': Wishlist
+		'/wishlist': Wishlist,
+		'/:category': Category
 	}} />
 	<Footer />
 </main>

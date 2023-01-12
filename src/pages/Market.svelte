@@ -1,4 +1,6 @@
 <script>
+    import { fade } from "svelte/transition";
+
     import BestSelling from "../sections/BestSelling.svelte";
     import BrandsWeLove from "../sections/BrandsWeLove.svelte";
     import CategoryWidget from "../sections/CategoryWidget.svelte";
@@ -8,7 +10,7 @@
 
 </script>
 
-<div class="market-container">
+<div class="market-container" in:fade>
     <h1>Marketplace</h1>
     <CategoryWidget />
     <Recommended />

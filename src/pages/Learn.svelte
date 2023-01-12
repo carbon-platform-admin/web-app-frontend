@@ -1,4 +1,6 @@
 <script>
+    import { fade } from "svelte/transition";
+
     import Blogs from "../sections/Blogs.svelte";
     import Vlogs from "../sections/Vlogs.svelte";
     import BucketWrapper from "../components/BucketWrapper.svelte";
@@ -23,14 +25,21 @@
        
     ]
 
-    let pruchaseArticles = [
+    let purchaseArticles = [
         'https://www.projectcece.com/blog/545/what-is-carbon-neutral-fashion/',
         'https://the-ethos.co/what-is-sustainability-carbon-neutral-beauty/',
         'https://www.panaprium.com/blogs/i/carbon-neutral-clothing',
     ]
+
+    let articleDict = {
+        'transportation': transportationArticles,
+        'home': homeArticles,
+        'food': foodArticles,
+        'purchase': purchaseArticles,
+    }
 </script>
 
-<div class="learn-container">
+<div class="learn-container" in:fade>
     <h1>Learn</h1>
     <div class="learning-categories">
         <BucketWrapper title="Transportation">
@@ -74,7 +83,7 @@
         </BucketWrapper>
         <BucketWrapper title="Purchases">
             <ul>
-                {#each pruchaseArticles as article}
+                {#each purchaseArticles as article}
                     <li>
                         <a href={article}>
                             <p>

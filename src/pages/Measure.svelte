@@ -1,10 +1,12 @@
 <script>
+    import { fade } from "svelte/transition";
+
     import Recommended from "../sections/Recommended.svelte";
 
 
 </script>
 
-<div class="measure-page">
+<div class="measure-page" in:fade>
     <h1>
         Calculate your CO2 Footprint
     </h1>
