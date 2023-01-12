@@ -19,18 +19,7 @@
                 </p>
             </li>
         {/each}
-    </ul>
-    <ul>
-        <h2>Tags</h2>
-        <br >
-        {#each tags as item}
-            <li>
-                <p>
-                    {item}
-                </p>
-            </li>
-        {/each}
-    </ul>
+    </ul>    
     <ul>
         <h2>Policies</h2>
         <br >
