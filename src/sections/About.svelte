@@ -81,7 +81,8 @@
 <style>
 
     .about-container {
-        margin-bottom: 0;
+        margin-bottom: 0px;
+        margin-top: 60px;
     }
     .company-logo {
         border-radius: 10px;

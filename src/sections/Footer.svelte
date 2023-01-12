@@ -1,6 +1,11 @@
 <script>
-    import { categories, tags, policies } from "../categories/categories"
-
+    import { tags, policies } from "../categories/categories"
+    let categories = [
+        'Transportation',
+        'Home',
+        'Food',
+        'Purchases'
+    ]
 </script>
 
 <div class="footer">
@@ -10,7 +15,7 @@
         {#each categories as category}
             <li>
                 <p>
-                    {category.title}
+                    {category}
                 </p>
             </li>
         {/each}

@@ -13,27 +13,15 @@
     import Blogs from "../sections/Blogs.svelte";
     import Vlogs from "../sections/Vlogs.svelte";
     import BrandsWeLove from "../sections/BrandsWeLove.svelte";
+    import Summary from "../sections/Summary.svelte"
 </script>
 
 <div class="home-container" in:fade>
-    <Featured />
+    <!-- <Featured /> -->
+    <Summary />
     <CategoryWidget />
     <Recommended />
-    <TagSlideshow />
-    <CategorySnippet category={new Category("Jewelery", [], "Get your loved ones something that shines bright this holiday season.")}/>
-    <CategorySnippet category={new Category("Household furnishings and equipment")}/>
-    <Vlogs />
-    <BestSelling />
-    <JustIn />
-    <CategorySnippet category={new Category("Bedding, Cushions, and Throws")}/>
-    <CategorySnippet category={new Category("Tops & T-Shirts")}/>
-    <CategorySnippet category={new Category("Pants")}/>
-    <!-- TODO -->
-    <BrandsWeLove />
-    <!-- Brands We Love -->
-    <Blogs />
     <About />
-    
 </div>
 
 <style>

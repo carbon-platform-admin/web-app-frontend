@@ -81,9 +81,15 @@
             </div>
         {:else if title === 'Product Description'}
             <div class="dropdown-content">
-                <p>
-                    {product.body}
-                </p>
+                {#if product.body[0] === '<'}
+                    {@html product.body}
+                    
+                {:else}
+                    <p>
+                        {@html product.body}
+
+                    </p>
+                {/if}
             </div>
         {:else if title === 'Benefits'}
             <div class="dropdown-content">

@@ -49,9 +49,9 @@
 
 
         if (query === '') {
-            window.location = prodHost;
+            window.location = devHost;
         } else if (!window.location.toString().includes('search')) {
-            window.location = prodHost + 'search/' + query;
+            window.location = devHost + 'search/' + query;
         }
     }
 

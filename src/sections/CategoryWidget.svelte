@@ -12,53 +12,62 @@
     // Take the clientWidth* of the list's wrapper div, divide by the total width of the list
     // *Client width is the total width of element minus the width of the scrollbar (if applicable)
 
-    $: idxCap = 0;
+    // $: idxCap = 0;
 
-    // Fetch the main categories with no parent categories
-    onMount(() => {
-        api.get('categories/roots').then((res) => {
-            categories = res.data['content'];
+    // // Fetch the main categories with no parent categories
+    // onMount(() => {
+    //     api.get('categories/roots').then((res) => {
+    //         categories = res.data['content'];
 
            
 
             
-        }).catch((err) => {
-            console.log(err);
-            alert("Error fetching categories")
-        }).finally(() => {
-            console.log(document.querySelector('.category_item').clientWidth);
-            console.log(document.querySelector('.category_item').clientWidth * categories.length);
-            console.log(document.querySelector('.categories-widget').clientWidth);
-            idxCap = Math.round((document.querySelector('.category_item').clientWidth * categories.length) / document.querySelector('.categories-widget').clientWidth);
-        });
-    })
+    //     }).catch((err) => {
+    //         console.log(err);
+    //         alert("Error fetching categories")
+    //     }).finally(() => {
+    //         console.log(document.querySelector('.category_item').clientWidth);
+    //         console.log(document.querySelector('.category_item').clientWidth * categories.length);
+    //         console.log(document.querySelector('.categories-widget').clientWidth);
+    //         idxCap = Math.round((document.querySelector('.category_item').clientWidth * categories.length) / document.querySelector('.categories-widget').clientWidth);
+    //     });
+    // })
 
 
 
 
 
-    function moveSlideShow(dir) {
-        if (dir === 'next') {
-            currIdx++;    
-        } else if (dir === 'back') {
-            currIdx--;
-            if (currIdx < 0) {
-                currIdx = idxCap - 1;
-            }
-        }
+    // function moveSlideShow(dir) {
+    //     if (dir === 'next') {
+    //         currIdx++;    
+    //     } else if (dir === 'back') {
+    //         currIdx--;
+    //         if (currIdx < 0) {
+    //             currIdx = idxCap - 1;
+    //         }
+    //     }
 
         
-        let itemWidth = document.querySelector('.category_slideshow').clientWidth;
+    //     let itemWidth = document.querySelector('.category_slideshow').clientWidth;
         
-        var slideShow = document.querySelector('.category_slideshow')
-        slideShow.setAttribute('style', `transform: translateX(-${currIdx * itemWidth}px)`);
+    //     var slideShow = document.querySelector('.category_slideshow')
+    //     slideShow.setAttribute('style', `transform: translateX(-${currIdx * itemWidth}px)`);
 
+    // }
+
+    function handleRedirect(extension) {
+        console.log(window.location.href);
+        if (window.location.href.includes('/#/marketplace')) {
+            window.location.href = extension + "/marketplace";
+            return
+        } 
+        window.location.href = extension;
     }
 </script>
 
 <section id="category-widget">
     <div class="categories-widget">
-        {#if currIdx !== 0}
+        <!-- {#if currIdx !== 0}
             <button class="progress_slide_show" on:click|preventDefault={() => moveSlideShow('back')}>
                 <img src="./assets/icons/less-than.png" alt="less than sign">
             </button>
@@ -68,16 +77,24 @@
             <button class="progress_slide_show right" on:click|preventDefault={() => moveSlideShow('next')}>
                 <img src="./assets/icons/greater-than.png" alt="greater than sign">
             </button>
-        {/if}
+        {/if} -->
         <ul class="category_slideshow">
-            {#each enumerate(categories) as category}
-                <li class="category_item">
-                    <a href={'/#/' + category.link}>
-                        <div class="icon_wrapper" style={"background-color: " + colors[category[0]] + ";"}><img src={category[1].icon_url} alt={category[1].icon_alt || "placeholder"}></div>
-                        <h4>{category[1].name}</h4>
-                    </a>
-                </li>
-            {/each}
+            <li class="category-item">
+                <div class="icon-wrapper" on:click={() => {handleRedirect('/#/transportation')}}><img src="./assets/icons/categories/train.png" alt="train"></div>
+                <h2>Transportation</h2>
+            </li>
+            <li class="category-item">
+                <div class="icon-wrapper" on:click={() => {handleRedirect("/#/home")}}><img src="./assets/icons/categories/home.png" alt="house icon"></div>
+                <h2>Home</h2>
+            </li>
+            <li class="category-item">
+                <div class="icon-wrapper" on:click={() => {handleRedirect("/#/food")}}><img src="./assets/icons/categories/fork.png" alt="fork"></div>
+                <h2>Food</h2>
+            </li>
+            <li class="category-item">
+                <div class="icon-wrapper" on:click={() => {handleRedirect('/#/purchases')}}><img src="./assets/icons/categories/dollar-sign.png" alt="dollar sign"></div>
+                <h2>Purchases</h2>
+            </li>
         </ul>
     </div>
 </section>
@@ -90,8 +107,7 @@
 
     .categories-widget {
         width: var(--main-content-width);
-        margin: 50px auto;
-        margin-bottom: 0;
+        margin: 60px auto;
         position: relative;
         overflow: hidden;
         height: fit-content;
@@ -126,22 +142,21 @@
         height: 128px;
     }
 
-    .categories-widget a {
-        display: block;
-        margin-top: 4px;
-        padding: 0 18px;
-        border-radius: 50%;
-        color: var(--navbar-color);
+    .category-item {
+        text-align: center;
     }
 
-    .icon_wrapper {
+    .category-item h2 {
+        font-weight: 400;
+        color: var(--navbar-color);
+        cursor: pointer;
+    }
+
+    .icon-wrapper {
         padding: 58px;
         border-radius: 50%;
-    }
-
-    .categories-widget h4 {
-        text-align: center;
-        margin: 0;
+        background-color: var(--navbar-color);
+        cursor: pointer;
     }
 
     .category_slideshow {
@@ -151,6 +166,7 @@
         padding: 0;
         height: fit-content;
         transition: transform 600ms ease-in-out;
+        justify-content: space-between;
     }
 
     .progress_slide_show {

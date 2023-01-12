@@ -13,6 +13,10 @@
     import Cancel from './pages/Cancel.svelte';
     import Search from './pages/Search.svelte';
     import Wishlist from './pages/Wishlist.svelte';
+	import Measure from './pages/Measure.svelte';
+    import Learn from './pages/Learn.svelte';
+    import Market from './pages/Market.svelte';
+    import About from './sections/About.svelte';
 
 
 	if (Object.keys(localStorage).length === 0) {
@@ -27,12 +31,15 @@
 	<Navbar />
 	<Router routes={{
 		'/': Home,
+		'/measure': Measure,
+		'/learn': Learn,
+		'/marketplace': Market,
+		'/search/:query': Search,
+		'/about': About,
 		'/cart': Cart,
 		'/success': Success,
 		'/cancel': Cancel,
-		'/calculate': CarbonFootprintCalc,
 		'/products/:productHandle': ProductDetail,
-		'/search/:query': Search,
 		'/wishlist': Wishlist
 	}} />
 	<Footer />
