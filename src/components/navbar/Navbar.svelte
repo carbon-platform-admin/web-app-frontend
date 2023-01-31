@@ -4,6 +4,7 @@
     import MyAccount from "./MyAccount.svelte"
     import CartIcon from "../cart/CartIcon.svelte";
     import SubNavbar from "./SubNavbar.svelte";
+    import { frontendHost } from "../../hosts";
 
 
     // Handling which sub nav is active
@@ -20,7 +21,7 @@
 <header class="nav-body">
     <nav class="global-navbar">
         <div class="nav-inner">
-            <a href="/#/">
+            <a href={frontendHost}>
                 <div class="logo">
                     <img src="./assets/icons/carbon.png" alt="Logo">
                     <h1>The Carbon Platform</h1>
@@ -76,10 +77,9 @@
 
     .logo img {
         object-fit: scale-down;
-        width: 30px;
+        width: 45px;
         margin-right: 10px;
-        height: 30px;
-        margin-top: 5px;
+        height: 45px;
     }
 
     .navbar {

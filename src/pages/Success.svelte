@@ -1,12 +1,12 @@
 <script>
-    import { devHost, prodHost } from "../hosts";
+    import { frontendHost } from "../hosts";
 </script>
 
 <div class="success-container">
     <h1>Your order has been placed!</h1>
     <h3>An email has been sent with the order confirmation</h3>
 
-    <button class="back-to-shopping" on:click={() => {window.location = prodHost}}>Back to Shopping</button>
+    <button class="back-to-shopping" on:click={() => {window.location = frontendHost}}>Back to Shopping</button>
 </div>
 
 <style>

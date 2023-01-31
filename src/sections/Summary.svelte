@@ -13,7 +13,7 @@
             <a href="/#/measure"> detailed version</a> for more precision
         </p>
     </BucketWrapper>
-    <img src="./assets/icons/right-arrow.png" alt="arrow pointing right">
+    <img class="arrow-small" src="./assets/icons/right-arrow.png" alt="arrow pointing right">
     <BucketWrapper title="Learn">
         <p>Once you have an estimate of your personal CO2 footprint, learn ways to reduce it!</p>
 
@@ -33,7 +33,7 @@
             </li>
         </ul>
     </BucketWrapper>
-    <img src="./assets/icons/right-arrow.png" alt="arrow pointing right">
+    <img class="arrow-small" src="./assets/icons/right-arrow.png" alt="arrow pointing right">
     <BucketWrapper title="Act">
         <p>
             Inspired to start your carbon reduction journey? 
@@ -56,6 +56,7 @@
             <li><p><a href="/#/purchases/markeplace">Purchases</a></p></li>
         </ul>
     </BucketWrapper>
+    <img class="arrow-graphic" src="./assets/icons/arrow-going-back.png" alt="arrow pointing back to the left">
 </div>
 
 <style>
@@ -65,14 +66,21 @@
         margin: 0 auto;
         justify-content: space-between;
         padding-top: 40px;
+        position: relative;
+        margin-bottom: 300px;
     }
 
-    .summary-wrapper img {
+    .arrow-small {
         width: 80px;
         height: 80px;
         margin-top: 175px;
     }
-
+    
+    .arrow-graphic {
+        width: 100%;
+        position: absolute;
+        bottom:-50%;
+    }
     .summary-wrapper ul {
         list-style-type: none;
         padding: 0;

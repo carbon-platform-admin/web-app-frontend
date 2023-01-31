@@ -14,6 +14,12 @@
     import Vlogs from "../sections/Vlogs.svelte";
     import BrandsWeLove from "../sections/BrandsWeLove.svelte";
     import Summary from "../sections/Summary.svelte"
+    import { onMount } from "svelte";
+    import { frontendHost } from "../hosts";
+
+    onMount(() => {
+        console.log(frontendHost)
+    });
 </script>
 
 <div class="home-container" in:fade>

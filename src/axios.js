@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { serverHost } from './hosts';
 
 export const api = axios.create({
-    baseURL: 'https://carbon-platform-v1.herokuapp.com/api/',
+    baseURL: serverHost,
     headers: {
         'Content-Type': 'application/json',   
         // "Access-Control-Allow-Origin":  "*"

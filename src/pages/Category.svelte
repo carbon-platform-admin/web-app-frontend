@@ -1,7 +1,7 @@
 <script>
     import BucketWrapper from "../components/BucketWrapper.svelte";
     import CategorySnippet from "../UI/CategorySnippet.svelte";
-    import { Category, articleDict } from "../utils/utils";
+    import { Category } from "../utils/utils";
 
     export let params;
 </script>
@@ -13,7 +13,7 @@
     <div class="articles">
         <BucketWrapper title="Articles">
             <ul>
-                {#each articleDict[params.category] as article}
+                {#each [] as article}
                     <li>
                         <a href={article}>{article}</a>
                     </li>

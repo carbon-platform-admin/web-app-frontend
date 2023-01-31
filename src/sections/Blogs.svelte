@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { api } from "../axios";
-    import { concatBlog } from "../utils/utils";
+    import BlogItem from "../components/blogs/BlogItem.svelte";
 
 
 
@@ -18,6 +18,7 @@
     }
 
     onMount(() => {
+        
         fetchBlogs();
     })
 </script>
@@ -30,49 +31,35 @@
     {:else}
         <ul class="blog-list">
             {#each blogs as blog}
-                <li class="blog-item">
-                    <img src={blog.thumbnail} alt="">
-                    <h3>{blog.title}</h3>
-                    <p>{concatBlog(blog.content)}</p>
-                </li>
+                <BlogItem {blog} />
             {/each}
         </ul>
     {/if}
 </div>
 
 <style>
-
+    
     .blog-list {
         display: flex;
         list-style: none;
         padding: 0;
-
+        width: max-content;
+        margin: 0 auto;
     }
 
     .blogs-container h2 {
         font-weight: 400;
+        font-size: xx-large;
+        text-align: center;
+        color: var(--navbar-color);
+        margin-bottom: 70px;
     }
 
     .blogs-container {
-        width: var(--main-content-width);
+        width: 90%;
         margin: 4em auto;
         justify-content: center;
         position: relative;
-    }
-
-    .blog-item {
-        width: 446px;
-        margin: 0 15px;
-    }
-
-    .blog-item:hover {
-        color: var(--accent-color);
-    }
-
-    .blog-item img {
-        border-radius: 15px;
-        width: 100%;
-        cursor: pointer;
     }
 
     .blogs-container a {
@@ -83,22 +70,9 @@
         font-weight: 500;
     }
 
-    .blog-item h3 {
-        cursor: pointer;
-        transition: all 200ms ease-in-out;
-        font-weight: 500;
-    }
-
-    .blog-item p {
-        line-height: 35px;
-        font-size: 17px;
-        font-weight: 500;
-        color: var(--navbar-color) !important;
-    }
+    
 
     .blogs-container a:hover {
         text-decoration: underline;
     }
-
-
 </style>

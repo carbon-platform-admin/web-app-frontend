@@ -15,11 +15,10 @@
     <CategoryWidget />
     <Recommended />
     <BestSelling />
-    <CategorySnippet category={new Category("Jewelery", [], "Get your loved ones something that shines bright this holiday season.")}/>
-    <CategorySnippet category={new Category("Household furnishings and equipment")}/>
-    <CategorySnippet category={new Category("Bedding, Cushions, and Throws")}/>
-    <CategorySnippet category={new Category("Tops & T-Shirts")}/>
-    <CategorySnippet category={new Category("Pants")}/>
+    <!-- <CategorySnippet category={new Category("Transportation", [], "Get your loved ones something that shines bright this holiday season.")}/> -->
+    <CategorySnippet category={new Category("Home", [])}/>
+    <CategorySnippet category={new Category("Food")}/>
+    <CategorySnippet category={new Category("Purchases")}/>
     <BrandsWeLove />
 </div>
 

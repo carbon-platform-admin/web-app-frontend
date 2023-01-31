@@ -1,5 +1,5 @@
 :root {
-	--background-color: white;
+	--background-color: #FAF9F6;
 	--header-color: ;
 	--navbar-color: #395B64;
 	--experimental-color: #393E46;
@@ -38,7 +38,8 @@ html, body {
 	width: 100%;
 	height: 100%;
 	margin: 0;
-	font-family: var(--text-font-family)
+	font-family: var(--text-font-family);
+	background-color: var(--background-color);
 }
 
 body {
@@ -49,9 +50,16 @@ body {
 }
 
 p {
-	font-size: 16px;
-	font-weight: 500;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 28px;
 }
+
+/* li {
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 28px;
+} */
 
 a {
 	text-decoration: none;

@@ -103,7 +103,7 @@
         <div class="product-info">
             <div class="info">
                 <h1>{product.title}</h1>
-                <span class="vendor-name">{product.vendor.name}</span>
+                <span class="vendor-name">{product.vendor}</span>
                 <PriceDisplay {product}/>
                 {#if product.review_count !== 0}
                     <StarRating product={product} full={true}/>

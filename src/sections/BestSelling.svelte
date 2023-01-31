@@ -32,4 +32,12 @@
         margin: 0 auto;
         margin-bottom: 30px;
     }
+
+    .recommended-container h2 {
+        font-weight: 400;
+        font-size: xx-large;
+        text-align: center;
+        color: var(--navbar-color);
+        margin-bottom: 70px;
+    }
 </style>

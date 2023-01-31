@@ -69,7 +69,7 @@
                         <span>{product.carbon_footprint}</span>
                     </li>
                     <li>
-                        <span>{product.vendor.name}</span>
+                        <span>{product.vendor}</span>
                     </li>
                     <li>
                         <span>{product.variant_grams}</span>
@@ -96,7 +96,7 @@
             </div>
         {:else if title === 'Name of Manufacturer'}
             <div class="dropdown-content">
-                <span>{product.vendor.name}</span>
+                <span>{product.vendor_name}</span>
             </div>
         {/if}
     </div>

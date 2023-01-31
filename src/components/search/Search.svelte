@@ -1,6 +1,6 @@
 <script>
     import algoliasearch from 'algoliasearch/lite';
-    import { devHost, prodHost } from '../../hosts';
+    import { frontendHost } from '../../hosts';
 
     import { SearchResultStore } from "../../stores/SearchResultsStore";
     import { queryStore } from "../../stores/QueryStore";
@@ -18,7 +18,7 @@
 
     onMount(() => {
         if (query === '' && window.location.href.includes('search')) {
-            window.location = prodHost;
+            window.location = frontendHost;
         }
         searchClient = algoliasearch(
             algoliaAppID,
@@ -27,20 +27,9 @@
 
         index = searchClient.initIndex('products');
 
-        // Warm up search
-
-        index.search({ query }).then(console.log)
-    
-        // const search = instantsearch({
-        //     indexName: 'instant_search',
-        //     searchClient: searchClient
-        // });
-    
-        // search.start();
     })
 
     async function search() {
-        console.log(query);
         const result = await index.search(query);
         hits = result.hits;
 
@@ -49,9 +38,9 @@
 
 
         if (query === '') {
-            window.location = devHost;
+            window.location = frontendHost;
         } else if (!window.location.toString().includes('search')) {
-            window.location = devHost + 'search/' + query;
+            window.location = frontendHost + 'search/' + query;
         }
     }
 

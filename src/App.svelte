@@ -18,6 +18,7 @@
     import Market from './pages/Market.svelte';
     import About from './sections/About.svelte';
     import Category from './pages/Category.svelte';
+    import Blog from './pages/Blog.svelte';
 
 
 	if (Object.keys(localStorage).length === 0) {
@@ -34,6 +35,7 @@
 		'/': Home,
 		'/measure': Measure,
 		'/learn': Learn,
+		'/learn/blogs/:blogTitle': Blog,
 		'/marketplace': Market,
 		'/search/:query': Search,
 		'/about': About,

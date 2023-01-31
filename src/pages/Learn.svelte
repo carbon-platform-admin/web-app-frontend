@@ -5,99 +5,42 @@
     import Vlogs from "../sections/Vlogs.svelte";
     import BucketWrapper from "../components/BucketWrapper.svelte";
     import Recommended from "../sections/Recommended.svelte";
+    import { api } from "../axios";
+    import { onMount } from "svelte";
+    import BlogSnippet from "../components/blogs/BlogSnippet.svelte";
+    import RecentArticles from "../sections/RecentArticles.svelte";
 
-    let transportationArticles = [
-        'https://blog.google/products/travel/find-flights-with-lower-carbon-emissions/',
-        'https://cars.usnews.com/cars-trucks/advice/how-to-buy-an-electric-car',
-        'https://www.bicycling.com/news/a20031666/14-commuter-pros-share-their-secrets/'
-    ]
+    $: articleDict = {};
 
-    let homeArticles = [
-        'https://www.energy.gov/eere/solar/homeowners-guide-going-solar',
-        'https://www.pge.com/en_US/residential/solar-and-vehicles/other-solar-options/battery-storage-for-residential-customers.page',
-        'https://www.andersenwindows.com/taxcredit/',
-        'https://www.washingtonpost.com/opinions/2023/01/04/heat-pumps-climate-carbon-emission-revolution/'
-    ]
+    onMount(() => {     
+        api.get('blogs/articles').then(res => {
+            articleDict = res.data;
+        }).catch(err => {
+            console.log(err);
+        })
+    })
 
-    let foodArticles = [
-        'https://phys.org/news/2022-01-plant-based-diets-carbon-footprint-capture.html#:~:text=The%2',
-        'https://www.lowlyfood.com/',
-       
-    ]
-
-    let purchaseArticles = [
-        'https://www.projectcece.com/blog/545/what-is-carbon-neutral-fashion/',
-        'https://the-ethos.co/what-is-sustainability-carbon-neutral-beauty/',
-        'https://www.panaprium.com/blogs/i/carbon-neutral-clothing',
-    ]
-
-    let articleDict = {
-        'transportation': transportationArticles,
-        'home': homeArticles,
-        'food': foodArticles,
-        'purchase': purchaseArticles,
-    }
+    
 </script>
 
 <div class="learn-container" in:fade>
     <h1>Learn</h1>
     <div class="learning-categories">
-        <BucketWrapper title="Transportation">
-            <ul>
-                {#each transportationArticles as article}
-                    <li>
-                        <a href={article}>
-                            <p>
-                                {article}
-                            </p>
-                        </a>
-                    </li>
-                {/each}
-            </ul>
-        </BucketWrapper>
-        <BucketWrapper title="Home">
-            <ul>
-                {#each homeArticles as article}
-                    <li>
-                        <a href={article}>
-                            <p>
-                                {article}
-                            </p>
-                        </a>
-                    </li>
-                {/each}
-            </ul>
-        </BucketWrapper>
-        <BucketWrapper title="Food">
-            <ul>
-                {#each foodArticles as article}
-                    <li>
-                        <a href={article}>
-                            <p>
-                                {article}
-                            </p>
-                        </a>
-                    </li>
-                {/each}
-            </ul>
-        </BucketWrapper>
-        <BucketWrapper title="Purchases">
-            <ul>
-                {#each purchaseArticles as article}
-                    <li>
-                        <a href={article}>
-                            <p>
-                                {article}
-                            </p>
-                        </a>
-                    </li>
-                {/each}
-            </ul>
-        </BucketWrapper>
+        {#each Object.keys(articleDict) as articleCategory}
+            <BucketWrapper title={articleCategory}>
+                <ul>
+                    {#each articleDict[articleCategory] as article}
+                        <li>
+                            <BlogSnippet blog={article} />
+                        </li>
+                    {/each}
+                </ul>
+            </BucketWrapper>
+        {/each}
     </div>
 </div>
 <Blogs />
-<Vlogs />
+<RecentArticles />
 <Recommended />
 
 <style>
@@ -123,7 +66,6 @@
     .learning-categories li {
         margin: 10px 0;
         display: flex;
-        max-width: 30ch;
     }
 
     .learning-categories p {
