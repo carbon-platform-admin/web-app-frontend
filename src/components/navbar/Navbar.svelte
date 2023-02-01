@@ -28,9 +28,9 @@
                 </div>
             </a>
             <ul class="navbar">
-                <li><h2><a href="/#/measure">CO2 calculator</a></h2></li>
-                <li><a href="/#/learn"><h2>Blog</h2></a></li>
-                <li><h2><a href="/#/marketplace">Marketplace</a></h2></li>
+                <li><h2><a href="/#/measure">Measure</a></h2></li>
+                <li><a href="/#/learn"><h2>Learn</h2></a></li>
+                <li><h2><a href="/#/marketplace">Act</a></h2></li>
                 <li><h2><a href="/#/about">About Us</a></h2></li>
             </ul>
             <Search />

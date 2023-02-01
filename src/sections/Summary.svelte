@@ -4,7 +4,7 @@
 
 <div class="summary-wrapper">
     
-    <BucketWrapper title="Measure" width="340px">
+    <BucketWrapper title="Measure - CO2 Calculator" width="340px">
         <p>Estimate and track improvement on your personal CO2 footprint!</p>
 
         <p>
@@ -14,7 +14,7 @@
         </p>
     </BucketWrapper>
     <img class="arrow-small" src="./assets/icons/right-arrow.png" alt="arrow pointing right">
-    <BucketWrapper title="Learn" width="340px">
+    <BucketWrapper title="Learn - Blogs & Articles" width="340px">
         <p>Once you have an estimate of your personal CO2 footprint, learn ways to reduce it!</p>
 
         <ul class="learn-list">
@@ -34,7 +34,7 @@
         </ul>
     </BucketWrapper>
     <img class="arrow-small" src="./assets/icons/right-arrow.png" alt="arrow pointing right">
-    <BucketWrapper title="Act" width="340px">
+    <BucketWrapper title="Act - Marketplace" width="340px">
         <p>
             Inspired to start your carbon reduction journey? 
             Every little bit helps! Check out our curated and 
