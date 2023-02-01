@@ -66,6 +66,8 @@
         padding-top: 10px;
         position: relative;
         margin: 0 auto;
+        display: flex;
+        padding-bottom: 10px;
     }
     
     .logo h1 {
@@ -93,34 +95,17 @@
         z-index: 10;
     }
 
-    .sub-nav-component {
-        position: relative;
-    }
-
-    .sub-nav-component::after {
-        content: "";
-        width: 20px; 
-        height: 14px;
-        display: block;
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-        position: absolute;
-        bottom: 0px;
-        background-color: var(--sub-nav-color);
-        left: calc(50% - 10px);
-    }
-
     .nav-inner {
         display: flex;
-        height: 50px;
+        height: auto;
         margin: 0 auto;
         justify-content: center;
+        flex: 1;
     }
 
     .navbar a {
         display: block;
     }
-
-
 
     .logo {
         display: flex;

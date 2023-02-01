@@ -37,6 +37,7 @@
         margin-top: 0;
         margin-bottom: 20px;
         font-weight: 400;
+        color: var(--navbar-color);
     }
 
 </style>

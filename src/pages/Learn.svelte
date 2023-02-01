@@ -50,6 +50,7 @@
         text-align: center;
         font-weight: 400;
         margin: 50px auto;
+        color: var(--navbar-color);
     }
     .learning-categories {
         display: grid;
