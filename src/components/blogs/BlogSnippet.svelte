@@ -7,5 +7,7 @@
 </div>
 
 <style>
-
+    .blog-snippet {
+        margin: 0 auto;
+    }
 </style>

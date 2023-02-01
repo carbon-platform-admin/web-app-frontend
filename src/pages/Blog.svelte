@@ -6,6 +6,7 @@
 
     export let params;
     $: blog = {};
+    $: loading = true;
 
     onMount(() => {
         api.get(`blogs/${params.blogTitle}`).then(res => {
@@ -14,16 +15,19 @@
         }).catch(err => {
             window.alert('Error fetching blog')
             console.log(err)
+        }).finally(() => {
+            loading = false;
         })
     })
 </script>
-
-<div class="blog-page">
-    <h2>{blog.title}</h2>
-    {@html blog.content}
-    <RecentArticles />
-    <Blogs />
-</div>
+{#if !loading}
+    <div class="blog-page">
+        <h2>{blog.title}</h2>
+        {@html blog.content}
+        <RecentArticles />
+        <Blogs />
+    </div>
+{/if}
 
 <style>
     .blog-page {

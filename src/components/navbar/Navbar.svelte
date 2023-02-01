@@ -23,7 +23,7 @@
         <div class="nav-inner">
             <a href={frontendHost}>
                 <div class="logo">
-                    <img src="./assets/icons/carbon.png" alt="Logo">
+                    <img src="./assets/icons/logo.jpg" alt="Logo">
                     <h1>The Carbon Platform</h1>
                 </div>
             </a>

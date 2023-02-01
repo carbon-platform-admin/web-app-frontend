@@ -1,4 +1,4 @@
-const FRONTDEV = false;
+const FRONTDEV = true;
 const SERVERDEV = false;
 
 export const frontendHost = FRONTDEV ? "http://localhost:8080/#/" : "https://gorgeous-sawine-faaa7b.netlify.app/#/";

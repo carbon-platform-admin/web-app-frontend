@@ -19,7 +19,7 @@
     <div class="about-header">
         <div class="company-logo">
             <h1>The Carbon Platform</h1>
-            <img src="./assets/icons/carbon.png" alt="element symbol for carbon">
+            <img src="./assets/icons/logo.jpg" alt="element symbol for carbon">
         </div>
         <div class="about-content">
             <h1>About Us</h1>
