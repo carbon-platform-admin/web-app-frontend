@@ -1,14 +1,16 @@
 <script>
+    import { onMount } from "svelte";
     import algoliasearch from 'algoliasearch/lite';
+
     import { frontendHost } from '../../hosts';
+    import {algoliaAppID, algoliaPublicKey } from "../../algolia_keys";
 
     import { SearchResultStore } from "../../stores/SearchResultsStore";
     import { queryStore } from "../../stores/QueryStore";
 
-    import { onMount } from "svelte";
 
-    const algoliaAppID = "B8LL3M4JX0";
-    const algoliaPublicKey = "d4efaae7309f0667b068b5162a2660bb";
+    // const algoliaAppID = "B8LL3M4JX0";
+    // const algoliaPublicKey = "d4efaae7309f0667b068b5162a2660bb";
 
     let searchClient;
     let index;
